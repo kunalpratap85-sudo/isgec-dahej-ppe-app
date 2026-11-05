@@ -1,7 +1,7 @@
 // ISGEC PPE Service Worker
 // NOTE: bump CACHE_NAME whenever shipped assets change (icons, HTML) so the
 // new versions are picked up instead of serving stale cached copies.
-const CACHE_NAME = 'isgec-ppe-v2';
+const CACHE_NAME = 'isgec-ppe-v3';
 // Relative paths resolve against the Service Worker scope, so the app works
 // when hosted under any base path (GitHub Pages project sites etc.).
 const ASSETS_TO_CACHE = [
@@ -38,6 +38,10 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   // Only cache GET requests that are static assets, do not cache API calls
   if (event.request.method !== 'GET' || event.request.url.includes('script.google.com')) {
+    return;
+  }
+  if (event.request.mode === 'navigate') {
+    event.respondWith(fetch(event.request).catch(() => caches.match('./index.html')));
     return;
   }
   event.respondWith(
