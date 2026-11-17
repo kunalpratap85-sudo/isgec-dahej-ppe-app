@@ -1,4 +1,4 @@
-const CACHE_NAME = 'isgec-ppe-c55ee03482021cce';
+const CACHE_NAME = 'isgec-ppe-1aae6dd4187349ac';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -8,7 +8,7 @@ const ASSETS_TO_CACHE = [
   './icons/icon-maskable-192.png',
   './icons/icon-maskable-512.png',
   './icons/apple-touch-icon.png',
-  "./assets/index-DQRZbfBR.css","./assets/index-4IrDy-6N.js"
+  "./assets/index-DQRZbfBR.css","./assets/index-Ds8N2Yms.js"
 ];
 
 self.addEventListener('install', (event) => {
